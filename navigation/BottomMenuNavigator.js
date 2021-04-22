@@ -7,7 +7,7 @@ import Dashboard from '../screens/Dashboard';
 import Search from '../screens/Search';
 import Logout from '../screens/Logout';
 
-const BottomMenuTabNavigator = createBottomTabNavigator({
+const BottomMenuNavigator = createBottomTabNavigator({
 	Dashboard: {
 		screen: Dashboard,
 		navigationOptions: {
@@ -34,4 +34,4 @@ const BottomMenuTabNavigator = createBottomTabNavigator({
 	},
 });
 
-export default createAppContainer(BottomMenuTabNavigator);
+export default BottomMenuNavigator;

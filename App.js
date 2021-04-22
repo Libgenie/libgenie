@@ -1,9 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import BottomMenuNavigator from './navigation/BottomMenuNavigator';
+import AuthNavigator from './navigation/AuthNavigator';
 
 export default function App() {
-	return <BottomMenuNavigator />;
+	return <AuthNavigator />;
 }
 
 const styles = StyleSheet.create({
