@@ -3,16 +3,17 @@ import {View, Text, StyleSheet, Button} from 'react-native';
 import {logoutUser} from '../store/actions/auth';
 import {useDispatch} from 'react-redux';
 
-const Dashboard = () => {
+const Dashboard = props => {
 	const dispatch = useDispatch();
 
 	const handleLogout = async () => {
 		try {
 			await dispatch(logoutUser());
-			props.navigation.navigate('AuthNavigator');
-			console.log('Logged Out');
+			props.navigation.navigate('SignInScreen');
 		} catch (err) {
+			console.log('Error while logging out', err);
 			console.log(err);
+			props.navigation.navigate('SignInScreen');
 		}
 	};
 

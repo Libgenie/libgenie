@@ -25,15 +25,14 @@ export const loginUser = (email, password) => {
 };
 
 export const logoutUser = () => {
-	return async dispatch => {
+	return async (dispatch, state) => {
 		try {
-			const response = await firebase.auth().signOut();
-			console.log('Logged Out', response);
+			await firebase.auth().signOut();
+			console.log('Logged Out : ', state().auth.email);
 			dispatch({
 				type: LOGOUT_USER,
 			});
 		} catch (error) {
-			console.log('Error while loggin out');
 			throw error;
 		}
 	};

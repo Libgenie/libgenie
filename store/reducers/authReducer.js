@@ -12,7 +12,7 @@ const authReducer = (state = initialState, action) => {
 			return {...state, email, token, expirationTime};
 
 		case LOGOUT_USER:
-			return initialState;
+			return {...state, token: null, expirationTime: null};
 
 		default:
 			return state;

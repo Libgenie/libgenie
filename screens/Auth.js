@@ -26,6 +26,8 @@ const Auth = props => {
 	const [error, setError] = useState([false, null]);
 	const dispatch = useDispatch();
 
+	const reduxStoreAuth = useSelector(state => state.auth);
+
 	let [fontsLoaded, err] = useFonts({
 		Poppins_500Medium,
 		Barlow_500Medium,
@@ -97,7 +99,10 @@ const Auth = props => {
 						</View>
 						<View>
 							<Formik
-								initialValues={{email: '', password: ''}}
+								initialValues={{
+									email: reduxStoreAuth.email ? reduxStoreAuth.email : '',
+									password: '',
+								}}
 								onSubmit={(values, actions) => {
 									// actions.resetForm();
 									performLogin(values);
