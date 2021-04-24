@@ -17,6 +17,7 @@ export const loginUser = (email, password) => {
 					expirationTime: response.user
 						.toJSON()
 						.stsTokenManager.expirationTime.toString(),
+					uid: response.user.uid.toString(),
 				},
 			});
 		} catch (error) {

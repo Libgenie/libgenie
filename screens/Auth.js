@@ -18,6 +18,7 @@ import {Barlow_500Medium, Barlow_600SemiBold} from '@expo-google-fonts/barlow';
 import {Poppins_500Medium, useFonts} from '@expo-google-fonts/poppins';
 
 import {loginUser} from '../store/actions/auth';
+import {storeUser} from '../store/actions/user';
 import {useDispatch, useSelector} from 'react-redux';
 
 const Auth = props => {
@@ -52,6 +53,7 @@ const Auth = props => {
 			setIsLoading(true);
 			setError([false, null]);
 			await dispatch(loginUser(values.email, values.password));
+			await dispatch(storeUser());
 			setIsLoading(false);
 			props.navigation.navigate('BottomMenuTabNavigator');
 			console.log('User Ready!');
@@ -64,6 +66,11 @@ const Auth = props => {
 				err.code === 'auth/user-not-found'
 			)
 				setError([true, 'Invalid Credentials : Wrong Username or Password']);
+			else if (err.code === 'permission-denied')
+				setError([
+					true,
+					'Malicious Intent Detected : Failed to Fetch User Data',
+				]);
 			else setError([true, 'Something went wrong!']);
 			setIsLoading(false);
 		}
@@ -115,6 +122,8 @@ const Auth = props => {
 											onChangeText={props.handleChange('email')}
 											value={props.values.email}
 											style={styles.formInput}
+											autoCompleteType='email'
+											keyboardType='email-address'
 											placeholderTextColor='#b3b3b3'
 											onFocus={() => setEnableShift(true)}
 										/>
@@ -124,6 +133,7 @@ const Auth = props => {
 											onChangeText={props.handleChange('password')}
 											value={props.values.password}
 											style={styles.formInput}
+											autoCompleteType='password'
 											secureTextEntry={true}
 											placeholderTextColor='#b3b3b3'
 											onFocus={() => setEnableShift(true)}

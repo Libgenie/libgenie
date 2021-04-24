@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, LogBox} from 'react-native';
 import * as firebase from 'firebase';
 import firebaseConfig from './secrets/firebaseConfig';
 import AuthNavigator from './navigation/AuthNavigator';
@@ -13,6 +13,7 @@ if (firebase.apps.length === 0) {
 }
 
 export default function App() {
+	LogBox.ignoreLogs(['Setting a timer for a long period of time']);
 	return (
 		<Provider store={store}>
 			<AuthNavigator />

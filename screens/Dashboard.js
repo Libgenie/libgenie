@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet, Button, Alert} from 'react-native';
 import {logoutUser} from '../store/actions/auth';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 const Dashboard = props => {
 	const dispatch = useDispatch();
+	const user = useSelector(state => state.user);
 
 	const handleLogout = async () => {
 		try {
@@ -35,6 +36,12 @@ const Dashboard = props => {
 	return (
 		<View style={styles.screen}>
 			<Text>Dashboard UI</Text>
+			<Text>{user.college_id}</Text>
+			<Text>{user.display_name}</Text>
+			<Text>{user.gender}</Text>
+			<Text>{user.semester}</Text>
+			<Text>{user.stream}</Text>
+			<Text>{user.total_issues}</Text>
 			<Button title='Logout' onPress={prompLogout} />
 		</View>
 	);
