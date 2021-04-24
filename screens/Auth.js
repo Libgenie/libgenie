@@ -54,13 +54,14 @@ const Auth = props => {
 			await dispatch(loginUser(values.email, values.password));
 			setIsLoading(false);
 			props.navigation.navigate('BottomMenuTabNavigator');
-			console.log('Done');
+			console.log('User Ready!');
 		} catch (err) {
 			console.log('Error Code : ', err.code);
 			console.log('Error Message : ', err.message);
 			if (
 				err.code === 'auth/invalid-email' ||
-				err.code === 'auth/wrong-password'
+				err.code === 'auth/wrong-password' ||
+				err.code === 'auth/user-not-found'
 			)
 				setError([true, 'Invalid Credentials : Wrong Username or Password']);
 			else setError([true, 'Something went wrong!']);
@@ -128,7 +129,10 @@ const Auth = props => {
 											onFocus={() => setEnableShift(true)}
 										/>
 
-										<TouchableOpacity onPress={props.handleSubmit}>
+										<TouchableOpacity
+											onPress={props.handleSubmit}
+											disabled={isLoading}
+											activeOpacity={0.6}>
 											<View style={styles.formButton}>
 												{!isLoading ? (
 													<Text style={styles.formButtonText}>LOGIN</Text>

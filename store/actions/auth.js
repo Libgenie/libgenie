@@ -4,10 +4,11 @@ import {LOGIN_USER, LOGOUT_USER} from '../constants';
 export const loginUser = (email, password) => {
 	return async dispatch => {
 		try {
+			await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
 			const response = await firebase
 				.auth()
 				.signInWithEmailAndPassword(email, password);
-			console.log(response.user.email);
+			console.log('Logged In : ', response.user.email);
 			dispatch({
 				type: LOGIN_USER,
 				payload: {
