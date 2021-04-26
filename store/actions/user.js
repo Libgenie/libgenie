@@ -17,3 +17,9 @@ export const storeUser = (email, password) => {
 		}
 	};
 };
+
+export const removeUser = () => {
+	return async dispatch => {
+		dispatch({type: CLEAR_USER});
+	};
+};
