@@ -3,7 +3,17 @@ import { View, Text, StyleSheet, Button, Image, ImageBackground, ScrollView } fr
 import issuestyles from '../screens/dashboardstyles';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-const Issue = () => {
+const Issue = issue => {
+  const checkStatus = status => {
+    switch (status) {
+      case 1:
+        return 'Issued';
+      case 2:
+        return 'Confirmed';
+      case 3:
+        return 'Pending';
+    }
+  };
   return (
     <View>
       <View style={issuestyles.listItem}>
@@ -12,11 +22,11 @@ const Issue = () => {
         </View>
         <View style={{ width: '60%', marginLeft: -15 }}>
           <Text style={issuestyles.bookName} numberOfLines={1}>
-            Direful tasteful cakes blah blah blah blah blah
+            {issue.name}
           </Text>
-          <Text style={issuestyles.lastDate}>Last date : 12.03.21</Text>
+          <Text style={issuestyles.lastDate}>{`Last date : 14.03.2001`}</Text>
         </View>
-        <Text style={issuestyles.bookStatus}>Issued</Text>
+        <Text style={issuestyles.bookStatus}>{checkStatus(issue.status)}</Text>
       </View>
     </View>
   );

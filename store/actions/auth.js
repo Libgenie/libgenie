@@ -4,10 +4,11 @@ import {LOGIN_USER, LOGOUT_USER} from '../constants';
 export const loginUser = (email, password) => {
 	return async dispatch => {
 		try {
+			await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
 			const response = await firebase
 				.auth()
 				.signInWithEmailAndPassword(email, password);
-			console.log(response.user.email);
+			console.log('Logged In : ', response.user.email);
 			dispatch({
 				type: LOGIN_USER,
 				payload: {
@@ -16,6 +17,7 @@ export const loginUser = (email, password) => {
 					expirationTime: response.user
 						.toJSON()
 						.stsTokenManager.expirationTime.toString(),
+					uid: response.user.uid.toString(),
 				},
 			});
 		} catch (error) {
@@ -25,15 +27,14 @@ export const loginUser = (email, password) => {
 };
 
 export const logoutUser = () => {
-	return async dispatch => {
+	return async (dispatch, state) => {
 		try {
-			const response = await firebase.auth().signOut();
-			console.log('Logged Out', response);
+			await firebase.auth().signOut();
+			console.log('Logged Out : ', state().auth.email);
 			dispatch({
 				type: LOGOUT_USER,
 			});
 		} catch (error) {
-			console.log('Error while loggin out');
 			throw error;
 		}
 	};

@@ -3,16 +3,17 @@ const initialState = {
 	email: null,
 	token: null,
 	expirationTime: null,
+	uid: null,
 };
 
 const authReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case LOGIN_USER:
-			const {email, token, expirationTime} = action.payload;
-			return {...state, email, token, expirationTime};
+			const {email, token, expirationTime, uid} = action.payload;
+			return {...state, email, token, expirationTime, uid};
 
 		case LOGOUT_USER:
-			return initialState;
+			return {...state, token: null, expirationTime: null, uid: null};
 
 		default:
 			return state;

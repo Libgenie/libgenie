@@ -2,43 +2,21 @@ import React from 'react';
 import { View, Text, StyleSheet, Button, Image, ImageBackground, ScrollView } from 'react-native';
 import cardstyles from '../screens/dashboardstyles';
 import Issue from './Issue';
-import issuestyles from './Issue';
-
-const cards = [
-  {
-    key: 1,
-    icon: require('../assets/past.png'),
-    heading: 'Current',
-    count: 15,
-  },
-  {
-    key: 2,
-    icon: require('../assets/past.png'),
-    heading: 'Pending',
-    count: 15,
-  },
-  {
-    key: 3,
-    icon: require('../assets/past.png'),
-    heading: 'Late',
-    count: 15,
-  },
-  {
-    key: 4,
-    icon: require('../assets/past.png'),
-    heading: 'Past',
-    count: 15,
-  },
-];
+import { useSelector } from 'react-redux';
 
 const Card = () => {
+  const user = useSelector(state => state.user);
+  const issues = useSelector(state => state.issues);
+  console.log('Issues Array', issues);
   return (
     <View style={cardstyles.cardContainer}>
       <ScrollView>
         <Text numberOfLines={1} style={cardstyles.name}>
-          Ishika Mukherjee
+          {user.display_name}
         </Text>
-        <Text style={cardstyles.detail}>BCA,4TH SEMESTER</Text>
+        <Text style={cardstyles.detail}>{`${user.stream.toUpperCase()}, SEMESTER : ${
+          user.semester
+        }`}</Text>
 
         <View style={cardstyles.subCardWrapper}>
           {cards.map(card => {
@@ -56,13 +34,9 @@ const Card = () => {
 
         <View style={cardstyles.pendingListWrapper}>
           <Text style={cardstyles.pendingListHeader}>Issue Status</Text>
-          <Issue />
-          <Issue />
-          <Issue />
-          <Issue />
-          <Issue />
-          <Issue />
-          <Issue />
+          {issues.map(issue => {
+            return <Issue key={issue.uuid} issue={issue} />;
+          })}
         </View>
       </ScrollView>
     </View>
