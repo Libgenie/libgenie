@@ -106,7 +106,8 @@ const home_styles = StyleSheet.create({
 
   pendingListWrapper: {
     // borderWidth: 2,
-    height: Dimensions.get('window').height / 4.5,
+    // height: Dimensions.get('window').height / 4.5,
+    marginTop: 13,
   },
   pendingListHeader: {
     fontFamily: 'Lato_400Regular',
@@ -121,7 +122,7 @@ const home_styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 10,
+    marginBottom: 20,
   },
 
   listIcon: {

@@ -4,7 +4,7 @@ import BottomMenuTabNavigator from './BottomMenuNavigator';
 import SignInScreen from '../screens/Auth';
 
 const AuthNavigator = createSwitchNavigator({
-  // SignInScreen,
+  SignInScreen,
   BottomMenuTabNavigator,
 });
 // export default createAppContainer(
