@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const Logout = props => {
+const History = props => {
 	// UseEffect for first focus
 	useEffect(() => {
 		console.log('First Focus on History');
@@ -21,7 +21,7 @@ const Logout = props => {
 
 	return (
 		<View style={styles.screen}>
-			<Text>Logout UI</Text>
+			<Text>History UI</Text>
 		</View>
 	);
 };
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Logout;
+export default History;

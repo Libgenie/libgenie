@@ -1,7 +1,14 @@
 import React, {useEffect} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Platform, StatusBar} from 'react-native';
+import algoliasearch from 'algoliasearch/lite';
+import {InstantSearch, Hits} from 'react-instantsearch-dom';
+import {appId, apiKey, index} from '../secrets/alogoliaConfig';
+import SearchBox from '../components/SearchBox';
+import Results from '../components/Results';
 
 const Search = props => {
+	const searchClient = algoliasearch(appId, apiKey);
+
 	// UseEffect for first focus
 	useEffect(() => {
 		console.log('First Focus on Search');
@@ -20,8 +27,22 @@ const Search = props => {
 	}, [props.navigation]);
 
 	return (
-		<View style={styles.screen}>
-			<Text>Search UI</Text>
+		<View
+			style={{
+				paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+				borderWidth: 3,
+				borderColor: 'red',
+
+				// alignItems: 'center',
+				flex: 1,
+			}}>
+			<InstantSearch searchClient={searchClient} indexName={index}>
+				<View style={{alignItems: 'center'}}>
+					<SearchBox />
+				</View>
+
+				<Results />
+			</InstantSearch>
 		</View>
 	);
 };

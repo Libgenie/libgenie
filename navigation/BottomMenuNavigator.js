@@ -5,7 +5,7 @@ import {MaterialIcons} from '@expo/vector-icons';
 
 import Dashboard from '../screens/Dashboard';
 import Search from '../screens/Search';
-import Logout from '../screens/Logout';
+import History from '../screens/History';
 
 const BottomMenuNavigator = createBottomTabNavigator({
 	Dashboard: {
@@ -24,11 +24,11 @@ const BottomMenuNavigator = createBottomTabNavigator({
 			},
 		},
 	},
-	Logout: {
-		screen: Logout,
+	History: {
+		screen: History,
 		navigationOptions: {
 			tabBarIcon: tabinfo => {
-				return <MaterialIcons name='logout' size={24} color='#33af85' />;
+				return <MaterialIcons name='history' size={24} color='#33af85' />;
 			},
 		},
 	},
