@@ -12,7 +12,7 @@ const BottomMenuNavigator = createBottomTabNavigator({
 		screen: Dashboard,
 		navigationOptions: {
 			tabBarIcon: tabinfo => {
-				return <MaterialIcons name='dashboard' size={24} color='orange' />;
+				return <MaterialIcons name='dashboard' size={24} color='#33af85' />;
 			},
 		},
 	},
@@ -20,7 +20,7 @@ const BottomMenuNavigator = createBottomTabNavigator({
 		screen: Search,
 		navigationOptions: {
 			tabBarIcon: tabinfo => {
-				return <MaterialIcons name='search' size={24} color='orange' />;
+				return <MaterialIcons name='search' size={24} color='#33af85' />;
 			},
 		},
 	},
@@ -28,7 +28,7 @@ const BottomMenuNavigator = createBottomTabNavigator({
 		screen: Logout,
 		navigationOptions: {
 			tabBarIcon: tabinfo => {
-				return <MaterialIcons name='logout' size={24} color='orange' />;
+				return <MaterialIcons name='logout' size={24} color='#33af85' />;
 			},
 		},
 	},

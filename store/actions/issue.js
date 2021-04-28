@@ -1,6 +1,16 @@
 import * as firebase from 'firebase';
 import {STORE_ISSUES, CLEAR_ISSUES} from '../constants';
 
+const checkIssue = (issues)=>{
+	const update = issues.map((issue)=>{
+		console.log('updating')
+		if(new Date() > new Date(issue.return_date))
+			return {...issue,status:-1}
+		return issue
+	})
+	return update;
+}
+
 export const storeIssues = () => {
 	return (dispatch, state) => {
 		try {
@@ -15,9 +25,10 @@ export const storeIssues = () => {
 					querySnapshot.forEach(snapshot => {
 						newIssues.push(snapshot.data());
 					});
+					const updateIssueStatus=checkIssue(newIssues)
 					dispatch({
 						type: STORE_ISSUES,
-						payload: newIssues,
+						payload: updateIssueStatus,
 					});
 				});
 			return unsubscribe;
@@ -35,3 +46,4 @@ export const clearIssues = () => {
 		});
 	};
 };
+

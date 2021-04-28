@@ -55,7 +55,7 @@ const home_styles = StyleSheet.create({
 
   name: {
     fontFamily: 'Barlow_600SemiBold',
-    fontSize: 35,
+    fontSize: 30,
     color: colors.black,
     marginBottom: 5,
   },
@@ -125,17 +125,6 @@ const home_styles = StyleSheet.create({
     marginBottom: 20,
   },
 
-  listIcon: {
-    backgroundColor: '#a2f8f8',
-    borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 45,
-    height: 45,
-    padding: 10,
-    // marginRight: 10,
-  },
-
   bookName: {
     fontFamily: 'Barlow_600SemiBold',
     fontSize: 16,
@@ -144,12 +133,6 @@ const home_styles = StyleSheet.create({
 
   lastDate: {
     opacity: 0.5,
-  },
-
-  bookStatus: {
-    fontFamily: 'Barlow_600SemiBold',
-    fontSize: 16,
-    color: colors.seaGreen,
   },
 });
 
