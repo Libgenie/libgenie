@@ -43,7 +43,7 @@ const home_styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height / 2 + 140,
+    height: Dimensions.get('window').height > 700 ? '85%' : '82%',
     backgroundColor: 'white',
     borderWidth: 2,
     borderColor: 'white',
