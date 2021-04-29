@@ -55,8 +55,8 @@ const Search = props => {
       <View
         style={{
           paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-          borderWidth: 3,
-          borderColor: 'red',
+          // borderWidth: 3,
+          // borderColor: 'red',
           paddingHorizontal: 15,
           backgroundColor: '#f3f8fe',
           flex: 1,
@@ -76,7 +76,7 @@ const Search = props => {
             <SearchBox />
           </View>
 
-          {/* <Results /> */}
+          <Results />
         </InstantSearch>
       </View>
     </TouchableWithoutFeedback>

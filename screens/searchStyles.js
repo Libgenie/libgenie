@@ -35,6 +35,20 @@ const search_styles = StyleSheet.create({
 
     alignItems: 'center',
     flexDirection: 'row',
+    marginBottom: 20,
+  },
+
+  searchItem: {
+    // flex: 1,
+    borderWidth: 1,
+    borderRadius: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    // height: '25%',
+    // padding: 10,
+    marginBottom: 20,
+    // elevation: 0.5,
   },
 });
 
