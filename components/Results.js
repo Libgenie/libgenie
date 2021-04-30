@@ -12,7 +12,9 @@ const Results = connectInfiniteHits(({ hits, hasMore, refine }) => {
   return (
     <FlatList
       data={hits}
+      columnWrapperStyle={{ justifyContent: 'space-evenly' }}
       onEndReached={onEndReached}
+      numColumns={2}
       keyExtractor={repo => repo.objectID}
       renderItem={({ item }) => <BookSearchComponent book={item} />}
     />

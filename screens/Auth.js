@@ -79,15 +79,13 @@ const Auth = props => {
   return (
     <KeyboardAvoidingView behavior='height' enabled={true} style={styles.screen}>
       <ScrollView style={{ flex: 1 }}>
-        <TouchableWithoutFeedback
-          onPress={Keyboard.dismiss}
-          style={{ flex: 1, borderColor: 'red', borderWidth: 5 }}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={{ flex: 1 }}>
           <View
             style={{
               flex: 1,
               // justifyContent: 'space-between',
               paddingHorizontal: 30,
-              borderWidth: 2,
+              // borderWidth: 2,
             }}>
             <View style={styles.welcomeImageContainer}>
               <Welcome />
