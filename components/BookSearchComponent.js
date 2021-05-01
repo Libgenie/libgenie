@@ -42,7 +42,7 @@ const BookSearchComponent = ({ book }) => {
   //   console.log(book);
   return (
     <View style={searchstyles.searchItem}>
-      <View style={{ alignItems: 'center', elevation: 3, borderRadius: 15, marginBottom: 10 }}>
+      <View style={{ alignItems: 'center', elevation: 1, borderRadius: 15, marginBottom: 10 }}>
         <Image
           style={{ width: 175, height: 200, borderRadius: 15 }}
           source={{ uri: book.imageURL }}

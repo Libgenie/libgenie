@@ -88,7 +88,8 @@ const home_styles = StyleSheet.create({
   subCardIcon: {
     width: 20,
     height: 20,
-    marginRight: 10,
+    marginRight: 5,
+    opacity: 0.7,
   },
   subCardHeading: {
     fontFamily: 'Lato_400Regular',

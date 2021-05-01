@@ -2,11 +2,10 @@ import React from 'react';
 import { View, Text, StyleSheet, Button, Image, ImageBackground, ScrollView } from 'react-native';
 import issuestyles from '../screens/dashboardstyles';
 import { FontAwesome5 } from '@expo/vector-icons';
-import {BookStatus,ListIcon} from './status.styled'
+import { BookStatus, ListIcon } from './status.styled';
 
 const Issue = ({ issue }) => {
   const checkStatus = status => {
-
     switch (status) {
       case 1:
         return 'Issued';
@@ -19,33 +18,32 @@ const Issue = ({ issue }) => {
     }
   };
 
-  const checkIcon = status =>{
-    switch(status){
+  const checkIcon = status => {
+    switch (status) {
       case 1:
-      return 'check-circle';
+        return 'check-circle';
       case 2:
-      return 'thumbs-up';
+        return 'thumbs-up';
       case 3:
-      return 'clock';
+        return 'clock';
       default:
-      return 'bomb';
+        return 'bomb';
     }
-  }
+  };
 
-  const iconColor = status =>{
-    switch(status){
+  const iconColor = status => {
+    switch (status) {
       case 1:
-      return '#32a842';
+        return '#32a842';
       case 2:
-      return '#078de0';
+        return '#078de0';
       case 3:
-      return '#ecbe05';
+        return '#ecbe05';
       default:
-      return '#c90411';
+        return '#c90411';
     }
-  }
-
-const date = new Date(issue.return_date);
+  };
+  const date = new Date(issue.return_date);
   console.log(issue);
   return (
     <View>
@@ -57,7 +55,9 @@ const date = new Date(issue.return_date);
           <Text style={issuestyles.bookName} numberOfLines={1}>
             {issue.name}
           </Text>
-          <Text style={issuestyles.lastDate}>{`Last date : ${date.toDateString()}`}</Text>
+          <Text style={issuestyles.lastDate}>
+            {!issue.return_date ? 'Last date : N.A' : `Last date : ${date.toDateString()}`}
+          </Text>
         </View>
         <BookStatus status={issue.status}>{checkStatus(issue.status)}</BookStatus>
       </View>
