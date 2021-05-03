@@ -6,3 +6,6 @@ export const CLEAR_USER = 'CLEAR_USER';
 
 export const STORE_ISSUES = 'STORE_ISSUES';
 export const CLEAR_ISSUES = 'CLEAR_ISSUES';
+
+export const STORE_HISTORY = 'STORE_HISTORY';
+export const CLEAR_HISTORY = 'CLEAR_ISSUES';
