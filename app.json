@@ -1,29 +1,29 @@
 {
-	"expo": {
-		"name": "Libgenie",
-		"description": "The next generation library management app",
-		"slug": "libgenie",
-		"version": "0.0.1",
-		"orientation": "portrait",
-		"icon": "./assets/logo.png",
-		"splash": {
-			"image": "./assets/splash.png",
-			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
-		},
-		"updates": {
-			"fallbackToCacheTimeout": 0
-		},
-		"primaryColor": "#33af85",
-		"assetBundlePatterns": ["**/*"],
-		"android": {
-			"package": "com.libgenie.app",
-			"versionCode": 1,
-			"adaptiveIcon": {
-				"foregroundImage": "./assets/logo-adaptive.png",
-				"backgroundColor": "#33af85"
-			},
-			"permissions": []
-		}
-	}
+  "expo": {
+    "name": "Libgenie",
+    "description": "The next generation library management app",
+    "slug": "libgenie",
+    "version": "0.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#33af85"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "primaryColor": "#33af85",
+    "assetBundlePatterns": ["**/*"],
+    "android": {
+      "package": "com.libgenie.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo-adaptive.png",
+        "backgroundColor": "#33af85"
+      },
+      "permissions": []
+    }
+  }
 }
