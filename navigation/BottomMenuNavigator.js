@@ -1,37 +1,46 @@
 import React from 'react';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
-import {createAppContainer} from 'react-navigation';
 import {MaterialIcons} from '@expo/vector-icons';
+import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 
 import Dashboard from '../screens/Dashboard';
 import Search from '../screens/Search';
-import Logout from '../screens/Logout';
+import History from '../screens/History';
 
-const BottomMenuTabNavigator = createBottomTabNavigator({
-	Dashboard: {
-		screen: Dashboard,
-		navigationOptions: {
-			tabBarIcon: tabinfo => {
-				return <MaterialIcons name='dashboard' size={24} color='orange' />;
+const BottomMenuNavigator = createMaterialBottomTabNavigator(
+	{
+		Dashboard: {
+			screen: Dashboard,
+			navigationOptions: {
+				tabBarLabel: 'Dashboard',
+				tabBarIcon: ({tintColor}) => {
+					return <MaterialIcons name='dashboard' size={22} color={tintColor} />;
+				},
+			},
+		},
+		Search: {
+			screen: Search,
+			navigationOptions: {
+				tabBarIcon: ({tintColor}) => {
+					return <MaterialIcons name='search' size={22} color={tintColor} />;
+				},
+			},
+		},
+		History: {
+			screen: History,
+			navigationOptions: {
+				tabBarIcon: ({tintColor}) => {
+					return <MaterialIcons name='history' size={22} color={tintColor} />;
+				},
 			},
 		},
 	},
-	Search: {
-		screen: Search,
-		navigationOptions: {
-			tabBarIcon: tabinfo => {
-				return <MaterialIcons name='search' size={24} color='orange' />;
-			},
-		},
-	},
-	Logout: {
-		screen: Logout,
-		navigationOptions: {
-			tabBarIcon: tabinfo => {
-				return <MaterialIcons name='logout' size={24} color='orange' />;
-			},
-		},
-	},
-});
+	{
+		initialRouteName: 'Dashboard',
+		activeColor: '#33af85',
+		inactiveColor: '#969799',
+		barStyle: {backgroundColor: '#ffffff'},
+	}
+);
 
-export default createAppContainer(BottomMenuTabNavigator);
+export default BottomMenuNavigator;
