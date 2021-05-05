@@ -8,7 +8,7 @@ const history_styles = StyleSheet.create({
 
     // alignItems: 'center',
     flex: 1,
-    // justifyContent: 'space-between',
+    justifyContent: 'space-between',
   },
 
   headerContainer: {
@@ -37,10 +37,10 @@ const history_styles = StyleSheet.create({
     left: 0,
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height > 700 ? '85%' : '82%',
-    backgroundColor: '#f6f5fa',
+    backgroundColor: '#f3f8fe',
     borderTopRightRadius: 30,
     borderTopLeftRadius: 30,
-    paddingHorizontal: 12,
+    // paddingHorizontal: 12,
     paddingTop: 30,
   },
 
@@ -48,38 +48,31 @@ const history_styles = StyleSheet.create({
     width: '100%',
     // height: Dimensions.get('window').height / 7,
     // borderWidth: 2,
-    borderRadius: 20,
+    // borderRadius: 20,
     marginBottom: 17,
-    backgroundColor: colors.cardPink,
+    backgroundColor: 'white',
     paddingHorizontal: 10,
     paddingVertical: 10,
     elevation: 2,
     flexDirection: 'row',
+    alignItems: 'center',
   },
 
   bookName: {
     fontFamily: 'Barlow_600SemiBold',
     fontSize: 20,
     marginBottom: 10,
+    marginLeft: 5,
     opacity: 0.8,
+    width: '65%',
   },
 
   dateContainer: {
     // borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 3,
-    marginLeft: 5,
-  },
-
-  dateBullete: {
-    // borderWidth: 2,
-    width: 10,
-    height: 10,
-    borderRadius: 10,
-    marginHorizontal: 5,
-    backgroundColor: '#33af85',
-    opacity: 0.6,
+    marginBottom: 10,
+    // marginLeft: 5,
   },
 
   date: {
